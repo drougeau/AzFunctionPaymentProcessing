@@ -1,0 +1,7 @@
+{
+  "version": "2.0",
+  "Values": {
+    "MyStorage": "DefaultEndpointsProtocol=https;AccountName=<STORAGE_ACCOUNT_NAME>;AccountKey=<STORAGE_ACCOUNT_KEY>;EndpointSuffix=core.windows.net"
+  }
+
+}
