@@ -3,8 +3,8 @@
 Azure Durable Function Sample for Payment Processing of a CSV file
 
 ### Prerequisites:
-- Azure Storage Account
-- Azure Function
+- Azure Storage Account (Must Exist)
+- Azure Function (Can be create whn Publishing from Visual Studio)
 - Azure Key Vault (Optional - Not implemented yet)
 
 ![GitHub Logo](/workflow.png)
@@ -18,6 +18,7 @@ Azure Durable Function Sample for Payment Processing of a CSV file
 
 ### Setup:
 - Clone the repository
+- Open the Project in Visual Studio 2017
 - Modify the following entries in each of the source files
   - <STORAGE_ACCOUNT_NAME>
   - <STORAGE_KEY>
