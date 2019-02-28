@@ -7,10 +7,10 @@ Azure Durable Function Sample for Payment Processing of a CSV file
 - Azure Function (Can be create whn Publishing from Visual Studio)
 - Azure Key Vault (Optional - Not implemented yet)
 
+### Diagram:
 ![GitHub Logo](/workflow.png)
 
 ### Workflow:
-
 1. This sample monitor an Azure Blob storage contaainer "Inputfiles" for new Blob
 1. Once a file is drop in the contaner, The AzFunction will open and read the file content
 1. Initiate a process for each Transaction (Line)
