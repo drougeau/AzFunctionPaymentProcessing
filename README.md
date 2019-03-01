@@ -1,4 +1,4 @@
-# Azure Function Payment Processing
+# Azure Function Payment Processing Sample
 
 Azure Durable Function Sample for Payment Processing of a CSV file with Secret
 
