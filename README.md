@@ -1,11 +1,11 @@
 # Azure Function Payment Processing
 
-Azure Durable Function Sample for Payment Processing of a CSV file
+Azure Durable Function Sample for Payment Processing of a CSV file with Secret
 
 ### Prerequisites:
 - Azure Storage Account (Must Exist)
+- Azure Key Vault
 - Azure Function (Can be create when Publishing from Visual Studio)
-- Azure Key Vault (Optional - Not implemented yet)
 
 ### Diagram:
 ![GitHub Logo](/workflow.png)
@@ -22,5 +22,15 @@ Azure Durable Function Sample for Payment Processing of a CSV file
 - Modify the following entries in each of the source files
   - <STORAGE_ACCOUNT_NAME>
   - <STORAGE_KEY>
+- Configure Azure Key Vault (https://medium.com/statuscode/getting-key-vault-secrets-in-azure-functions-37620fd20a0b)
+- Modify the following entries in each of the source files
+  - <KEYVAULT_ACCOUNTNAME>
+  - <KEYVAULT_SECRETNAME>
+  - <KEYVAULT_SECRETVERSION>
 - Build the project
 - Publish to Azure Function
+- Apply Azure Key Vault PErmissions for the Azure Function to read the Secret 
+
+
+#### VS2017 Publish Settings Sample Screenshot:
+![GitHub Logo](/PublishProfile-AKVSettings.PNG)
