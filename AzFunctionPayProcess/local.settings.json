@@ -2,7 +2,8 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "MyStorage": "DefaultEndpointsProtocol=https;AccountName=<STORAGE_ACCOUNT_NAME>;AccountKey=<STORAGE_KEY>;EndpointSuffix=core.windows.net",
+    "PPAPIStorage": "DefaultEndpointsProtocol=https;AccountName=<STORAGE_ACCOUNT_NAME>;AccountKey=<STORAGE_KEY>;EndpointSuffix=core.windows.net",
+    "PPAPISecret": "<CAN'T USE KEY VAULT WHILE TESTING LOCALLY, ENTER STATIC VALUE>",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet"
   }
 }

@@ -7,7 +7,7 @@
 /// WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE. 
 /// 
 ///  Programmed by : Denis Rougeau 
-///  Date          : Feb, 2019 
+///  Date          : March, 2019 
 /// -------------------------------------------------------------------------------------------------------------- 
 /// </summary>
 /// 
@@ -30,6 +30,15 @@ namespace AzFunctionPayProcess
 
     public static class AzFunctionPayProcess
     {
+
+        // ***************************************************
+        //  Get Secret from Azure Key Vault
+        //  Reference:
+        //    New key vault and function capabilities - by Jeff Hollan
+        //    https://medium.com/statuscode/getting-key-vault-secrets-in-azure-functions-37620fd20a0b
+        // ***************************************************
+        private static string AKVPPAPISecret = System.Environment.GetEnvironmentVariable("PPAPISecret");
+
 
         // Define Blob storage settings as Priv Constant
         private const string account = "<STORAGE_ACCOUNT_NAME";
@@ -77,7 +86,9 @@ namespace AzFunctionPayProcess
                 // Split the transaction lines into columns (CSV value)
                 string[] columns = transaction.Split(',');
                 string transaction_dt = DateTime.Now.ToString("yyyyMMddHHmmss");
-                results = $"Payment Succeeded for {columns[0]}, {transaction_dt}, {transaction}";
+
+                // Sample Results including AKV Secret, First Column and a Transaction DateTime
+                results = $"{AKVPPAPISecret}, Payment Succeeded for {columns[0]}, {transaction_dt}, {transaction}";
             }
 
             //// SAMPLE EXTERNAL API CALL
@@ -89,6 +100,9 @@ namespace AzFunctionPayProcess
             //var response = await Client.GetAsync(apiRequest);
             //var forecast = await response.Content.ReadAsStringAsync();
             //log.LogInformation(forecast);
+
+            // DEBUG ONLY
+            //log.LogInformation($"AKV PayProcess: {AKVPPAPISecret}");
 
             return results;
         }
@@ -123,7 +137,7 @@ namespace AzFunctionPayProcess
         }
 
         [FunctionName("BlobTrigger")]
-        public static async void Run([BlobTrigger("inputfiles/{filename}", Connection = "MyStorage")]Stream PayFileBlob,
+        public static async void Run([BlobTrigger("inputfiles/{filename}", Connection = "PPAPIStorage")]Stream PayFileBlob,
             string filename, ILogger log, [OrchestrationClient] DurableOrchestrationClient starter)
         {
 
@@ -132,6 +146,9 @@ namespace AzFunctionPayProcess
             byte[] bytes = new byte[PayFileBlob.Length];
             PayFileBlob.Read(bytes, 0, (int)PayFileBlob.Length);
             text = System.Text.Encoding.UTF8.GetString(bytes.ToArray());
+
+            // DEBUG ONLY
+            //log.LogInformation($"AKV Trigger: {AKVPPAPISecret}");
 
             // Call the Durable function orchestrator to process the request content.
             string instanceId = await starter.StartNewAsync("AzFunctionPayProcess", text);

@@ -1,7 +1,8 @@
 {
   "version": "2.0",
   "Values": {
-    "MyStorage": "DefaultEndpointsProtocol=https;AccountName=<STORAGE_ACCOUNT_NAME>;AccountKey=<STORAGE_ACCOUNT_KEY>;EndpointSuffix=core.windows.net"
+    "PPAPIStorage": "DefaultEndpointsProtocol=https;AccountName=<STORAGE_ACCOUNT_NAME>;AccountKey=<STORAGE_ACCOUNT_KEY>;EndpointSuffix=core.windows.net",
+    "PPAPISecret": "@Microsoft.KeyVault(SecretUri=https://<KEYVAULT_NAME>.vault.azure.net/secrets/<KEYVAULT_SECRETNAME>/<KEYVAULT_SECRETVERSION"
   }
 
 }
