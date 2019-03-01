@@ -3,7 +3,7 @@
 Azure Durable Function Sample for Payment Processing of a CSV file with Secret
 
 ### Prerequisites:
-- Azure Storage Account (Must Exist)
+- Azure Storage Account
 - Azure Key Vault
 - Azure Function (Can be create when Publishing from Visual Studio)
 
