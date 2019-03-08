@@ -1,6 +1,6 @@
 # Azure Function Payment Processing Sample
 
-Azure Durable Function Sample for Payment Processing of a CSV file with Secret
+Sample Azure Durable Function for Payment Processing of a CSV file with API Secret stored in Azure Key Vault
 
 ### Prerequisites:
 - Azure Storage Account
