@@ -35,3 +35,7 @@ Azure Durable Function Sample for Payment Processing of a CSV file with Secret
 
 #### VS2017 Publish Settings Sample Screenshot:
 ![GitHub Logo](/PublishProfile-AKVSettings.PNG)
+
+
+#### Note:
+Source file also includes a working httptrigger which has been commented out
