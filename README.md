@@ -37,7 +37,7 @@ Sample Azure Durable Functions using .NetCore 2.1 for Payment Processing of a CS
 
 
 #### VS2017 Publish Settings Sample Screenshot:
-![GitHub Logo](/PublishProfile-AKVSettings.PNG)
+<img src="./PublishProfile-AKVSettings.PNG" align="center" width="500">
 
 
 ##### Note:
