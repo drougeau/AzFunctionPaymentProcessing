@@ -1,20 +1,23 @@
-# Azure Function Payment Processing Sample
+# Azure Durable Functions Payment Processing Sample
 
-Sample Azure Durable Function for Payment Processing of a CSV file with API Secret stored in Azure Key Vault
+Sample Azure Durable Functions using .NetCore 2.1 for Payment Processing of a CSV file with API Secret stored in Azure Key Vault
+
+### Scenario:
+- Fan-out/fan-in scenario in Durable Functions
+
+### Diagram:
+![GitHub Logo](/workflow.png)
 
 ### Prerequisites:
 - Azure Storage Account
 - Azure Key Vault
 - Azure Function (Can be create when Publishing from Visual Studio)
 
-### Diagram:
-![GitHub Logo](/workflow.png)
-
 ### Workflow:
 1. This sample monitor an Azure Blob storage container "inputfiles" for new Blob
-1. Once a file is drop in the contaner, the Azure Function will be triggerred automatically, open and read the file content
+1. Once a file is drop in the container, the Azure Function will be triggerred automatically, open and read the file content
 1. Initiate a Processing Function for each Transaction (Line) (Parallel Processing),
-1. Then save all processed transactions into an "outputfiles" container
+1. Then save all processed transactions into a blob within the "outputfiles" container
 
 ### Setup:
 - Clone the repository
@@ -28,7 +31,7 @@ Sample Azure Durable Function for Payment Processing of a CSV file with API Secr
   - <KEYVAULT_SECRETNAME>
   - <KEYVAULT_SECRETVERSION>
 - Build the project
-- [Optional] You can run the project locally prior to Publish to azure (Without KeyVault)
+- [Optional] You can run the project locally prior to Publish to Azure (Without KeyVault)
 - Publish to Azure Function
 - Apply Azure Key Vault Permissions for the Azure Function to be able to read the Secret 
 
@@ -37,5 +40,5 @@ Sample Azure Durable Function for Payment Processing of a CSV file with API Secr
 ![GitHub Logo](/PublishProfile-AKVSettings.PNG)
 
 
-#### Note:
+##### Note:
 Source file also includes a working httptrigger which has been commented out
