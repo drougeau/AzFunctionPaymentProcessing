@@ -27,15 +27,14 @@ Sample Azure Durable Functions using .NetCore 2.1 for Payment Processing of a CS
 - Clone the repository
 - Open the project in Visual Studio 2019
 - Modify the following entries in each host.json & local.settings.json (If testing locally)
-  - <STORAGE ACCOUNT KEY> ex: DefaultEndpointsProtocol=https;AccountName=AZSTACCT;AccountKey=uX...pw==;EndpointSuffix=core.windows.net 
-  - <AZURE KEY VAULT SECRET URI> ex: https://AZUREKEYVAULTNAME.vault.azure.net/secrets/SECRETNAME/2a...9
-- Configure Azure Key Vault Secret (https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references)
+  - <STORAGE_ACCOUNT_KEY> ex: DefaultEndpointsProtocol=https;AccountName=AZSTACCT;AccountKey=uX...pw==;EndpointSuffix=core.windows.net 
+  - <AZURE_KEY_VAULT_SECRET_URI> ex: https://AZUREKEYVAULTNAME.vault.azure.net/secrets/SECRETNAME/2a...9
 - Build the project
 - [Optional] You can run the project locally prior to Publish to Azure (Without KeyVault)
 - Publish to Azure Function
 
 ### PERMISSIONS REQUIRED FOR THE FUNCTION TO ACCESS THE SECRET IN KEY VAULT: (Azure Functions must exist)
-- Apply Azure Key Vault Permissions for the Azure Function to be able to read the Secret 
+- Apply Azure Key Vault Permissions for the Azure Function to be able to read the Secret (https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references)
   - Enable MSI and give it access to the Azure Key Vault
       - In the Azure portal, open your Azure function
       - Browse to Platform Features, then select Identity
@@ -55,8 +54,3 @@ Sample Azure Durable Functions using .NetCore 2.1 for Payment Processing of a CS
 
 #### VS2017 Publish Settings Sample Screenshot:
 <img src="./PublishProfile-AKVSettings.PNG" align="center" width="500">
-
-### Operation:
-- Drop the included CSV file in the inputfiles container of the storage account
-- Watch the Live Metrics in App Insights
-- Output file will be saved in the outputfiles container
