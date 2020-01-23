@@ -52,5 +52,5 @@ Sample Azure Durable Functions using .NetCore 2.1 for Payment Processing of a CS
 
 - Enable APP INSIGHTS to watch live metrics while processing.
 
-#### VS2017 Publish Settings Sample Screenshot:
+#### VS2019 Publish Settings Sample Screenshot:
 <img src="./PublishProfile-AKVSettings.PNG" align="center" width="500">
