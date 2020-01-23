@@ -2,8 +2,20 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "PPAPIStorage": "DefaultEndpointsProtocol=https;AccountName=<STORAGE_ACCOUNT_NAME>;AccountKey=<STORAGE_KEY>;EndpointSuffix=core.windows.net",
-    "PPAPISecret": "<CAN'T USE KEY VAULT WHILE TESTING LOCALLY, ENTER STATIC VALUE>",
+    "PPAPIStorage": "<STORAGE ACCOUNT KEY>",
+    "PPAPISecret": "<Local Testing Secret Value>",
+    "InputFolder": "inputfiles",
+    "OutputFolder": "outputfiles",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-  }
+  },
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "PPOutputBlob",
+      "type": "blob",
+      "path": "outputfiles/Test-Copy",
+      "connection": "PPAPIStorage",
+      "direction": "out"
+    }
+  ]
 }
